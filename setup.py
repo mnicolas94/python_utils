@@ -49,7 +49,7 @@ if __name__ == '__main__':
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/mnicolas94/python_utils",
-            packages=['mnd_utils, mnd_utils.datastructures'],
+            packages=['mnd_utils', 'mnd_utils.datastructures'],
             install_requires=[
                 'importlib',
                 'numpy',
