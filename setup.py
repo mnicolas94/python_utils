@@ -41,17 +41,23 @@ if __name__ == '__main__':
             long_description = fh.read()
 
         setuptools.setup(
-            name="***",
+            name="mnd_utils",
             version=version,
             author="Miguel Nicolás-Díaz",
             author_email="miguelcok27@gmail.com",
-            description="***",
+            description="Utility funtions and classes",
             long_description=long_description,
             long_description_content_type="text/markdown",
-            url="https://github.com/mnicolas94/propsettings",
-            packages=['***'],
+            url="https://github.com/mnicolas94/python_utils",
+            packages=['mnd_utils, mnd_utils.datastructures'],
             install_requires=[
-                '***'
+                'importlib',
+                'numpy',
+                'opencv-python',
+                'pandas',
+                'requests',
+                'tkinter',
+                'typing_extensions',
             ],
             classifiers=[
                 "Programming Language :: Python :: 3",
