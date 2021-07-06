@@ -51,7 +51,6 @@ if __name__ == '__main__':
             url="https://github.com/mnicolas94/python_utils",
             packages=['mnd_utils', 'mnd_utils.datastructures'],
             install_requires=[
-                'importlib',
                 'numpy',
                 'opencv-python',
                 'pandas',
