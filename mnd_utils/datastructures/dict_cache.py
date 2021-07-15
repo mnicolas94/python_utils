@@ -26,8 +26,9 @@ class DictCache:
         self._handle_size()
 
     def uncache(self, key):
-        self._key_order_list.remove(key)
-        self._cache_dict.pop(key)
+        if key in self._key_order_list:
+            self._key_order_list.remove(key)
+            self._cache_dict.pop(key)
 
     def clear_cache(self):
         while len(self._cache_dict) > 0:
