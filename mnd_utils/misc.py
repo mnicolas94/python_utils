@@ -6,21 +6,10 @@ import numpy as np
 import os
 from os import path
 import pandas as pd
-from pathlib import Path
 import random
 import requests
 from timeit import default_timer as timer
 import tkinter
-
-
-def test_img(index=0):
-	names = {
-		0: 'test.jpg',
-		1: 'test2.jpg',
-		2: 'cat.jpg',
-		3: 'test3.png',
-	}
-	return cv.imread(f'{Path(__file__).parent}/../test_data/{names[index]}')
 
 
 def timeit(method):
@@ -87,19 +76,20 @@ def decompose_seconds(seconds):
 	return h, m, s, ms
 
 
-def time_string(seconds, with_ms=False):
+def time_string(seconds, with_ms=False, sep=':'):
 	"""
 	Devolver un string en formato HH:MM:SS según la cantidad de segundos pasados por parámetro.
 	Si with_ms=True el formato es  HH:MM:SS,MS
 	:param seconds:
 	:param with_ms:
+	:param sep:
 	:return:
 	"""
 	h, m, s, ms = decompose_seconds(seconds)
 	if with_ms:
-		return '{:0>2d}:{:0>2d}:{:0>2d},{:0>3d}'.format(h, m, s, ms)
+		return f'{h:02d}{sep}{m:02d}{sep}{s:02d},{ms:03d}'
 	else:
-		return '{:0>2d}:{:0>2d}:{:0>2d}'.format(h, m, s)
+		return f'{h:02d}{sep}{m:02d}{sep}{s:02d}'
 
 
 def write_xlsx(datas, output_file):
