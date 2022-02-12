@@ -1,6 +1,23 @@
 
 
 class DictCache:
+    """
+    Indexed cache data structure to keep data in memory for optimized accessing.
+    Useful when you have a big volume of data, and you want to keep in memory a small subset of the most
+    recent accessed elements in case you need them several times before loading another subset of data.
+    Usage:
+
+        cache = DictCache(cache_size=500)
+        video_reader = <object to read frames of a video in disk>
+
+        def get_frame_fast(frame_index):
+            if cache.is_cached(frame_index):
+                return cache[frame_index]  # fast access if accessed a second time before uncaching
+            else:
+                frame = video_reader.get_frame(frame_index)  # slow access first time
+                cache.cache(frame_index, frame)
+                return frame
+    """
 
     def __init__(self, cache_size):
         self._cache_size = cache_size
