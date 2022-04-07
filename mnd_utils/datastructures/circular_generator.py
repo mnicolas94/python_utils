@@ -19,7 +19,7 @@ class CircularGenerator:
             return self._current_generator.__next__()
         except StopIteration:
             self._reset()
-            return next(self)
+            return self._current_generator.__next__()
 
     def __iter__(self):
         return self
